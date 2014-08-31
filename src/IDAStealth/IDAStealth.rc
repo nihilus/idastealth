@@ -1,0 +1,371 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// German (Germany) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
+#ifdef _WIN32
+LANGUAGE LANG_GERMAN, SUBLANG_GERMAN
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUT DIALOGEX 80, 0, 286, 255
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About IDAStealth"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CTEXT           "Thx to everyone for suggestions and feedback\n Special thanks to Peter Ferrie who provided an in-depth analysis of this plugin\nGreetz to all the unmentioned guys, u know why :)\n\nIDAStealth v1.3\n(C) 2008-2010, Jan Newger",IDC_STATIC,7,182,271,50
+    CONTROL         "<a>http://newgre.net/idastealth</a>",IDC_SYSLINK,
+                    "SysLink",0x0,96,238,93,11
+END
+
+IDD_DIALOG1 DIALOGEX 0, 0, 286, 247
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | DS_CONTROL | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Stealth Techniques (1)"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CONTROL         "NtQuerySystemInformation (Fake return value from kernel)",IDC_NTQSI,
+                    "Button",BS_AUTOCHECKBOX | BS_FLAT | WS_TABSTOP,15,46,213,10
+    CONTROL         "NtQueryObject (Fake number of debug ports)",IDC_NTQO,
+                    "Button",BS_AUTOCHECKBOX | BS_FLAT | WS_TABSTOP,15,20,176,10
+    CONTROL         "NtQueryInformationProcess (Includes CheckRemoteDebuggerPresent)",IDC_NTQIP,
+                    "Button",BS_AUTOCHECKBOX | BS_FLAT | WS_TABSTOP,15,59,237,10
+    CONTROL         "Enable stealth when debugger attaches",IDC_DBGATTACH,
+                    "Button",BS_AUTOCHECKBOX | BS_FLAT | WS_TABSTOP,15,222,143,10
+    CONTROL         "Enable stealth when debugger starts",IDC_DBGSTART,
+                    "Button",BS_AUTOCHECKBOX | BS_FLAT | WS_TABSTOP,15,209,134,10
+    CONTROL         "GetTickCount - Increase each time by random value from range: 0 -",IDC_GETTICKCOUNT,
+                    "Button",BS_AUTOCHECKBOX | BS_FLAT | WS_TABSTOP,15,72,226,10
+    CONTROL         "RtlGetNtGlobalFlags (Prevent debug heap initialization)",IDC_RTLNTGF,
+                    "Button",BS_AUTOCHECKBOX | BS_FLAT | WS_TABSTOP,15,33,194,10
+    EDITTEXT        IDC_TICK_DELTA,245,71,30,12,ES_AUTOHSCROLL | ES_NUMBER
+    GROUPBOX        "Common Stealth Techniques",IDC_STATIC,7,7,272,121
+    CONTROL         "Improved NtClose (Skip KiRaiseUserExceptionDispatcher)",IDC_NTCLOSE,
+                    "Button",BS_AUTOCHECKBOX | BS_FLAT | WS_TABSTOP,15,111,235,10
+    CONTROL         "Advanced HW BP protection (Context APIs/KiUserExceptionDispatcher)",IDC_PROTECTDRS,
+                    "Button",BS_AUTOCHECKBOX | BS_FLAT | WS_TABSTOP,15,85,240,10
+    CONTROL         "GetVersion + GetVersionEx + VerifyVersionInfo (Pretend WinXP SP3)",IDC_GETVERSION,
+                    "Button",BS_AUTOCHECKBOX | BS_FLAT | WS_TABSTOP,15,98,236,10
+    GROUPBOX        "Global Enable",IDC_STATIC,7,197,272,43
+    GROUPBOX        "Disable Flags",IDC_STATIC,7,134,272,56
+    CONTROL         "IsDebuggerPresent (Patch PEB.BeingDebugged)",IDC_DBGPRESENT,
+                    "Button",BS_AUTOCHECKBOX | BS_FLAT | WS_TABSTOP,15,147,170,10
+    CONTROL         "NtGlobalFlag (Patch global heap flags)",IDC_NTGF,"Button",BS_AUTOCHECKBOX | BS_FLAT | WS_TABSTOP,15,160,169,10
+    CONTROL         "HeapFlag +  ForceFlag (Patch other heap flags)",IDC_NTHF,
+                    "Button",BS_AUTOCHECKBOX | BS_FLAT | WS_TABSTOP,15,173,170,10
+END
+
+IDD_DIALOG2 DIALOGEX 0, 0, 286, 223
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | DS_CONTROL | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Stealth Techniques (2)"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CONTROL         "Fake parent process (Change to explorer.exe)",IDC_PARENTPROCESS,
+                    "Button",BS_AUTOCHECKBOX | BS_FLAT | WS_TABSTOP,15,59,163,10
+    CONTROL         "Disable BlockInput",IDC_BLOCKINPUT,"Button",BS_AUTOCHECKBOX | BS_FLAT | WS_TABSTOP,15,20,92,10
+    CONTROL         "Disable SuspendThread",IDC_SUSPENDTHREAD,"Button",BS_AUTOCHECKBOX | BS_FLAT | WS_TABSTOP,15,33,93,10
+    CONTROL         "Hide IDA from process list (NtQuerySystemInformation)",IDC_HIDEIDAPROCESS,
+                    "Button",BS_AUTOCHECKBOX | BS_FLAT | WS_TABSTOP,15,72,190,10
+    CONTROL         "Hide IDA Windows (FindWindow + EnumWindows)",IDC_HIDEIDAWND,
+                    "Button",BS_AUTOCHECKBOX | BS_FLAT | WS_TABSTOP,15,85,181,10
+    CONTROL         "Disable NtTerminateThread + NtTerminateProcess",IDC_TERMINATE,
+                    "Button",BS_AUTOCHECKBOX | BS_FLAT | WS_TABSTOP,15,46,176,10
+    CONTROL         "Swallow DBG_PRINTEXCEPTION (Hook DbgUiConvertStateChangeStructure)",IDC_DBGPRNTEXCEPT,
+                    "Button",BS_AUTOCHECKBOX | BS_FLAT | WS_TABSTOP,15,120,257,10
+    CONTROL         "OpenProcess (Prevent access to CSRSS.exe)",IDC_OPENPROCESS,
+                    "Button",BS_AUTOCHECKBOX | BS_FLAT | WS_TABSTOP,15,133,238,10
+    CONTROL         "SwitchDesktop (Prevent activation of other desktops)",IDC_SWITCH,
+                    "Button",BS_AUTOCHECKBOX | BS_FLAT | WS_TABSTOP,15,146,187,10
+    CONTROL         "Kill anti-attach techniques (Restore code section in ntdll.dll)",IDC_ANTIATTACH,
+                    "Button",BS_AUTOCHECKBOX | BS_FLAT | WS_TABSTOP,15,159,205,10
+    GROUPBOX        "Protect Debugger",IDC_STATIC,7,7,272,95
+    GROUPBOX        "Other Techniques",IDC_STATIC,7,109,272,107
+    CONTROL         "OutputDebugString (Fake return value of GetLastError)",IDC_OUTDBGSTR,
+                    "Button",BS_AUTOCHECKBOX | BS_FLAT | WS_TABSTOP,15,185,202,10
+    CONTROL         "NtYieldExecution (Fake return value)",IDC_NTYIELD,
+                    "Button",BS_AUTOCHECKBOX | BS_FLAT | WS_TABSTOP,15,172,142,10
+    CONTROL         "NtSetInformationThread (Prevent thread detachment)",IDC_NTSIT,
+                    "Button",BS_AUTOCHECKBOX | BS_FLAT | WS_TABSTOP,15,198,215,10
+END
+
+IDD_DIALOG3 DIALOGEX 0, 0, 286, 246
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | DS_CONTROL | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Driver Configuration"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CONTROL         "RDTSC (Set TSD flag in CR4, patch #GP handler in IDT)",IDC_RDTSC,
+                    "Button",BS_AUTOCHECKBOX | BS_FLAT | WS_TABSTOP,15,20,194,10
+    CONTROL         "Always return zero",IDC_RDTSC_ZERO,"Button",BS_AUTORADIOBUTTON | BS_FLAT | WS_GROUP | WS_TABSTOP,25,33,77,10
+    CONTROL         "Return increasing value with a delta of",IDC_RDTSC_INCREASING,
+                    "Button",BS_AUTORADIOBUTTON | BS_FLAT | WS_TABSTOP,25,46,139,10
+    EDITTEXT        IDC_RDTSC_DELTA,165,45,40,12,ES_AUTOHSCROLL | ES_NUMBER
+    CONTROL         "Unload driver when debuggee exits",IDC_UNLOAD_DRIVER,
+                    "Button",BS_AUTOCHECKBOX | BS_FLAT | WS_TABSTOP,15,59,129,10
+    CONTROL         "Randomize driver name (Use with caution!)",IDC_RAND_NAME,
+                    "Button",BS_AUTOCHECKBOX | BS_FLAT | WS_TABSTOP,15,72,153,10
+    GROUPBOX        "RDTSC Emulation Driver",IDC_STATIC,7,7,272,83
+    GROUPBOX        "Stealth Driver",IDC_STATIC,7,98,272,58
+    CONTROL         "NtSetInformationThread (Hook SDT entry)",IDC_NTSIT_DRV,
+                    "Button",BS_AUTOCHECKBOX | BS_FLAT | WS_TABSTOP,15,111,154,10
+    CONTROL         "Unload driver when debuggee exits",IDC_UNLOAD_STEALTH_DRV,
+                    "Button",BS_AUTOCHECKBOX | BS_FLAT | WS_TABSTOP,15,137,129,10
+    CONTROL         "NtQueryInformationProcess (Hook SDT entry)",IDC_NTQIP_DRV,
+                    "Button",BS_AUTOCHECKBOX | BS_FLAT | WS_TABSTOP,15,124,187,10
+END
+
+IDD_DIALOG4 DIALOGEX 0, 0, 286, 258
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | DS_CONTROL | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Other Options"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CONTROL         "Automatic jump selection (relative / absolute) [5 / 7 bytes]",IDC_AUTO_SELECTION,
+                    "Button",BS_AUTORADIOBUTTON | BS_FLAT | WS_GROUP | WS_TABSTOP,15,20,245,10
+    CONTROL         "Force absolute jumps [7 bytes]",IDC_FORCE_ABS,"Button",BS_AUTORADIOBUTTON | BS_FLAT | WS_TABSTOP,15,33,120,10
+    CONTROL         "Push/ret sequence [6 bytes] (NOT YET)",IDC_PUSH_RET,
+                    "Button",BS_AUTORADIOBUTTON | BS_FLAT | WS_DISABLED | WS_TABSTOP,15,46,155,10
+    CONTROL         "Automatically pass unknown exceptions to debuggee",IDC_PASS_EXCEPTIONS,
+                    "Button",BS_AUTOCHECKBOX | BS_FLAT | WS_TABSTOP,15,84,193,10
+    CONTROL         "Automatically halt debugger in top-level exception handler",IDC_HALT_IN_SEH,
+                    "Button",BS_AUTOCHECKBOX | BS_FLAT | WS_TABSTOP,15,97,243,10
+    CONTROL         "Automatically halt debugger at new EIP after SEH exception",IDC_HALT_AFTER_SEH,
+                    "Button",BS_AUTOCHECKBOX | BS_FLAT | WS_TABSTOP,15,110,248,10
+    EDITTEXT        IDC_TCP_PORT,40,162,44,14,ES_AUTOHSCROLL | ES_NUMBER
+    COMBOBOX        IDC_PROFILES,51,205,209,30,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Add",IDC_ADD_PROFILE,98,227,50,14
+    PUSHBUTTON      "Delete",IDC_DEL_PROFILE,162,227,50,14
+    GROUPBOX        "Inline Patching Configuration",IDC_STATIC,7,7,272,56
+    GROUPBOX        "Profiles",IDC_STATIC,7,191,272,60
+    GROUPBOX        "Debugging Support",IDC_STATIC,7,71,272,70
+    GROUPBOX        "Remote Debugging",IDC_STATIC,7,149,272,36
+    LTEXT           "Port:",IDC_STATIC,15,165,18,8
+    CONTROL         "Log location of top-level SEH handler and instruction pointer after SEH",IDC_LOG_SEH,
+                    "Button",BS_AUTOCHECKBOX | BS_FLAT | WS_TABSTOP,15,123,248,10
+END
+
+IDD_INPUTBOX DIALOGEX 0, 0, 263, 49
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Dialog"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_EDITBOX,7,7,249,14,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "OK",IDOK,152,28,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,206,28,50,14
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_ABOUT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 278
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 248
+    END
+
+    IDD_DIALOG1, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 279
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 240
+    END
+
+    IDD_DIALOG2, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 279
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 216
+    END
+
+    IDD_DIALOG3, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 279
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 239
+    END
+
+    IDD_DIALOG4, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 279
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 251
+    END
+
+    IDD_INPUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 256
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 42
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,3,0,0
+ PRODUCTVERSION 1,3,0,0
+ FILEFLAGSMASK 0x17L
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x2L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040704b0"
+        BEGIN
+            VALUE "FileDescription", "IDAStealth Dynamic Link Library"
+            VALUE "FileVersion", "1, 3, 0, 0"
+            VALUE "InternalName", "IDAStealth"
+            VALUE "LegalCopyright", "Copyright (C) 2008-2010 Jan Newger"
+            VALUE "OriginalFilename", "IDAStealth.dll"
+            VALUE "ProductName", "IDAStealth Dynamic Link Library"
+            VALUE "ProductVersion", "1, 3, 0, 0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x407, 1200
+    END
+END
+
+#endif    // German (Germany) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_CHOOSE DIALOGEX 0, 0, 171, 70
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "IDAStealth Plugin"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "Close",IDC_CLOSE,42,49,87,14
+    PUSHBUTTON      "Show options dialog",IDC_OPTIONS,42,7,87,14
+    PUSHBUTTON      "Show log window",IDC_LOG,42,28,87,14
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_CHOOSE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 164
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 63
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// JPG
+//
+
+IDR_LOGO                JPG                     "ida_stealth.jpg"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DRV
+//
+
+IDR_RDTSC               DRV                     "..\\RDTSCEmu\\driver\\objfre_wxp_x86\\i386\\RDTSCEmu.sys"
+IDR_STEALTH             DRV                     "..\\StealthDriver\\StealthDriver\\objfre_wxp_x86\\i386\\StealthDriver.sys"
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

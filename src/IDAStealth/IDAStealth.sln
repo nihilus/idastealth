@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "IDAStealth", "IDAStealth.vcproj", "{9295F5F3-F47E-4C50-B526-55AE13AA9457}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HideDebugger", "..\HideDebugger\HideDebugger.vcproj", "{59339E37-7C43-4CD2-B7B5-DF10D9197655}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9295F5F3-F47E-4C50-B526-55AE13AA9457}.Debug|Win32.ActiveCfg = Debug|Win32
+		{9295F5F3-F47E-4C50-B526-55AE13AA9457}.Debug|Win32.Build.0 = Debug|Win32
+		{9295F5F3-F47E-4C50-B526-55AE13AA9457}.Release|Win32.ActiveCfg = Release|Win32
+		{9295F5F3-F47E-4C50-B526-55AE13AA9457}.Release|Win32.Build.0 = Release|Win32
+		{59339E37-7C43-4CD2-B7B5-DF10D9197655}.Debug|Win32.ActiveCfg = Debug|Win32
+		{59339E37-7C43-4CD2-B7B5-DF10D9197655}.Debug|Win32.Build.0 = Debug|Win32
+		{59339E37-7C43-4CD2-B7B5-DF10D9197655}.Release|Win32.ActiveCfg = Release|Win32
+		{59339E37-7C43-4CD2-B7B5-DF10D9197655}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

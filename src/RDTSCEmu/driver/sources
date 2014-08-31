@@ -1,0 +1,18 @@
+# $Id$
+TARGETNAME=RDTSCEmu
+TARGETPATH=obj
+TARGETTYPE=DRIVER
+
+# Create browse info
+#BROWSER_INFO=1
+#BROWSERFILE=<some path>
+
+# Additional defines for the C/C++ preprocessor
+C_DEFINES=$(C_DEFINES) -DSUPPORT_64BIT_OFFSET
+
+SOURCES=RDTSCEmu.cpp \
+		distorm_dummy.c \
+		HookInt.cpp \
+        drvversion.rc
+        
+INCLUDES=..\distorm\src;

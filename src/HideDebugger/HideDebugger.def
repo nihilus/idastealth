@@ -1,0 +1,4 @@
+LIBRARY	"HideDebugger"
+
+EXPORTS
+	dummyExport @1

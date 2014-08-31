@@ -1,0 +1,16 @@
+# $Id$
+TARGETNAME=StealthDriver
+TARGETPATH=obj
+TARGETTYPE=DRIVER
+
+
+# Create browse info
+#BROWSER_INFO=1
+#BROWSERFILE=<some path>
+
+# Additional defines for the C/C++ preprocessor
+C_DEFINES=$(C_DEFINES)
+
+SOURCES=StealthDriver.cpp \
+        StealthImplementation.cpp \
+        drvversion.rc

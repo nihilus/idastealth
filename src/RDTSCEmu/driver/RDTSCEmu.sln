@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RDTSCEmu.WLH", "RDTSCEmu.WLH.vcproj", "{8B566A2C-41AC-40FF-B1EF-8AD47A208093}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		WLH checked|Win32 = WLH checked|Win32
+		WLH free|Win32 = WLH free|Win32
+		WLH2K checked|Win32 = WLH2K checked|Win32
+		WLH2K free|Win32 = WLH2K free|Win32
+		WLHNET checked|Win32 = WLHNET checked|Win32
+		WLHNET free|Win32 = WLHNET free|Win32
+		WLHXP checked|Win32 = WLHXP checked|Win32
+		WLHXP free|Win32 = WLHXP free|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8B566A2C-41AC-40FF-B1EF-8AD47A208093}.WLH checked|Win32.ActiveCfg = WLH checked|Win32
+		{8B566A2C-41AC-40FF-B1EF-8AD47A208093}.WLH checked|Win32.Build.0 = WLH checked|Win32
+		{8B566A2C-41AC-40FF-B1EF-8AD47A208093}.WLH free|Win32.ActiveCfg = WLH free|Win32
+		{8B566A2C-41AC-40FF-B1EF-8AD47A208093}.WLH free|Win32.Build.0 = WLH free|Win32
+		{8B566A2C-41AC-40FF-B1EF-8AD47A208093}.WLH2K checked|Win32.ActiveCfg = WLH2K checked|Win32
+		{8B566A2C-41AC-40FF-B1EF-8AD47A208093}.WLH2K checked|Win32.Build.0 = WLH2K checked|Win32
+		{8B566A2C-41AC-40FF-B1EF-8AD47A208093}.WLH2K free|Win32.ActiveCfg = WLH2K free|Win32
+		{8B566A2C-41AC-40FF-B1EF-8AD47A208093}.WLH2K free|Win32.Build.0 = WLH2K free|Win32
+		{8B566A2C-41AC-40FF-B1EF-8AD47A208093}.WLHNET checked|Win32.ActiveCfg = WLHNET checked|Win32
+		{8B566A2C-41AC-40FF-B1EF-8AD47A208093}.WLHNET checked|Win32.Build.0 = WLHNET checked|Win32
+		{8B566A2C-41AC-40FF-B1EF-8AD47A208093}.WLHNET free|Win32.ActiveCfg = WLHNET free|Win32
+		{8B566A2C-41AC-40FF-B1EF-8AD47A208093}.WLHNET free|Win32.Build.0 = WLHNET free|Win32
+		{8B566A2C-41AC-40FF-B1EF-8AD47A208093}.WLHXP checked|Win32.ActiveCfg = WLHXP checked|Win32
+		{8B566A2C-41AC-40FF-B1EF-8AD47A208093}.WLHXP checked|Win32.Build.0 = WLHXP checked|Win32
+		{8B566A2C-41AC-40FF-B1EF-8AD47A208093}.WLHXP free|Win32.ActiveCfg = WLHXP free|Win32
+		{8B566A2C-41AC-40FF-B1EF-8AD47A208093}.WLHXP free|Win32.Build.0 = WLHXP free|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
