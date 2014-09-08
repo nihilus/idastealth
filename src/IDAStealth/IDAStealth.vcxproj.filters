@@ -1,0 +1,252 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{60f2cde9-4c57-43be-aa09-585831b98342}</UniqueIdentifier>
+      <Extensions>.cpp;.cxx;.c</Extensions>
+    </Filter>
+    <Filter Include="NInjectLib">
+      <UniqueIdentifier>{54953c5f-b059-414c-aa3f-b3cc1e3b9a6f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{d71538cc-75d7-4430-b31b-b37486f23b57}</UniqueIdentifier>
+      <Extensions>.rc;.rc2;.ico;.gif;.bmp;</Extensions>
+    </Filter>
+    <Filter Include="HideDebuggerConfig">
+      <UniqueIdentifier>{8670447e-dc6e-44cd-9d25-9dd44c4fd20a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="IPCConfigExchange">
+      <UniqueIdentifier>{b5a16847-684b-4052-b527-3de4b52e9a9a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{b445e920-5106-407a-808c-7d8d8117ee25}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NCodeHook">
+      <UniqueIdentifier>{4530a528-d7c2-42f9-b446-0c89fa15891f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DriverControl">
+      <UniqueIdentifier>{dd11b33f-51bf-44a0-9b65-7bee5e2aa1b6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ResourceItem">
+      <UniqueIdentifier>{90463ee2-4677-4b25-8c3b-4145f972baa0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="IniFileAccess">
+      <UniqueIdentifier>{dbb6745a-b53b-47a1-814f-75a7a29f457b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GUI">
+      <UniqueIdentifier>{470d05d7-11ce-4ff0-843f-3c2a1e6f4e5c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RemoteStealth">
+      <UniqueIdentifier>{858872bd-23e9-442b-b29b-7d7d3e3d00b8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RemoteEvent">
+      <UniqueIdentifier>{d86af898-3f4f-427f-9f8f-1f6754ff728c}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="IDAMessageLogger.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="IDAStealth.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LocalStealthSession.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="StealthSession.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\NInjectLib\GenericInjector.cpp">
+      <Filter>NInjectLib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\NInjectLib\IATModifier.cpp">
+      <Filter>NInjectLib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\NInjectLib\InjectLib.cpp">
+      <Filter>NInjectLib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\NInjectLib\Process.cpp">
+      <Filter>NInjectLib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\NInjectLib\RemoteLibCall.cpp">
+      <Filter>NInjectLib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\HideDebugger\HideDebuggerConfig.cpp">
+      <Filter>HideDebuggerConfig</Filter>
+    </ClCompile>
+    <ClCompile Include="IPCConfigExchangeCommon.cpp">
+      <Filter>IPCConfigExchange</Filter>
+    </ClCompile>
+    <ClCompile Include="IPCConfigExchangeWriter.cpp">
+      <Filter>IPCConfigExchange</Filter>
+    </ClCompile>
+    <ClCompile Include="..\NCodeHook\NCodeHook.cpp">
+      <Filter>NCodeHook</Filter>
+    </ClCompile>
+    <ClCompile Include="..\NCodeHook\NCodeHookItem.cpp">
+      <Filter>NCodeHook</Filter>
+    </ClCompile>
+    <ClCompile Include="DriverControl.cpp">
+      <Filter>DriverControl</Filter>
+    </ClCompile>
+    <ClCompile Include="ResourceItem.cpp">
+      <Filter>ResourceItem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\IniFileAccess\IniFileAccess.cpp">
+      <Filter>IniFileAccess</Filter>
+    </ClCompile>
+    <ClCompile Include="IDAStealthDriversPage.cpp">
+      <Filter>GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="IDAStealthLogWindow.cpp">
+      <Filter>GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="IDAStealthPage1.cpp">
+      <Filter>GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="IDAStealthPage2.cpp">
+      <Filter>GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="IDAStealthPageMisc.cpp">
+      <Filter>GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\IDAStealthRemote\RemoteStealthClient.cpp">
+      <Filter>RemoteStealth</Filter>
+    </ClCompile>
+    <ClCompile Include="RemoteEventListener.cpp">
+      <Filter>RemoteEvent</Filter>
+    </ClCompile>
+    <ClCompile Include="RemoteEventReader.cpp">
+      <Filter>RemoteEvent</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\NInjectLib\GenericInjector.h">
+      <Filter>NInjectLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\NInjectLib\IATModifier.h">
+      <Filter>NInjectLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\NInjectLib\InjectLib.h">
+      <Filter>NInjectLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\NInjectLib\Process.h">
+      <Filter>NInjectLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\NInjectLib\RemoteLibCall.h">
+      <Filter>NInjectLib</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Resource Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\HideDebugger\HideDebuggerConfig.h">
+      <Filter>HideDebuggerConfig</Filter>
+    </ClInclude>
+    <ClInclude Include="IPCConfigExchangeCommon.h">
+      <Filter>IPCConfigExchange</Filter>
+    </ClInclude>
+    <ClInclude Include="IPCConfigExchangeWriter.h">
+      <Filter>IPCConfigExchange</Filter>
+    </ClInclude>
+    <ClInclude Include="IDACommon.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IDAMessageLogger.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IDAStealth.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LocalStealthSession.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="StealthSession.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\NCodeHook\distorm.h">
+      <Filter>NCodeHook</Filter>
+    </ClInclude>
+    <ClInclude Include="..\NCodeHook\NCodeHook.h">
+      <Filter>NCodeHook</Filter>
+    </ClInclude>
+    <ClInclude Include="..\NCodeHook\NCodeHookInstantiation.h">
+      <Filter>NCodeHook</Filter>
+    </ClInclude>
+    <ClInclude Include="..\NCodeHook\NCodeHookItem.h">
+      <Filter>NCodeHook</Filter>
+    </ClInclude>
+    <ClInclude Include="DriverControl.h">
+      <Filter>DriverControl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\RDTSCEmu\driver\RDTSCEmu.h">
+      <Filter>DriverControl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\StealthDriver\StealthDriver\StealthDriver.h">
+      <Filter>DriverControl</Filter>
+    </ClInclude>
+    <ClInclude Include="ResourceItem.h">
+      <Filter>ResourceItem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\IniFileAccess\IniFileAccess.h">
+      <Filter>IniFileAccess</Filter>
+    </ClInclude>
+    <ClInclude Include="IDAStealthAboutPage.h">
+      <Filter>GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="IDAStealthChooseDialog.h">
+      <Filter>GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="IDAStealthDriversPage.h">
+      <Filter>GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="IDAStealthLogWindow.h">
+      <Filter>GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="IDAStealthOptionsDialog.h">
+      <Filter>GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="IDAStealthPage1.h">
+      <Filter>GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="IDAStealthPage2.h">
+      <Filter>GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="IDAStealthPageMisc.h">
+      <Filter>GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="IDAStealthPropertyPage.h">
+      <Filter>GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="IDAStealthWTLWrapper.h">
+      <Filter>GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="WTLCommon.h">
+      <Filter>GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="WTLInputBox.h">
+      <Filter>GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\IDAStealthRemote\RemoteStealthClient.h">
+      <Filter>RemoteStealth</Filter>
+    </ClInclude>
+    <ClInclude Include="..\IDAStealthRemote\RemoteStealthConnection.h">
+      <Filter>RemoteStealth</Filter>
+    </ClInclude>
+    <ClInclude Include="RemoteEventListener.h">
+      <Filter>RemoteEvent</Filter>
+    </ClInclude>
+    <ClInclude Include="RemoteEventReader.h">
+      <Filter>RemoteEvent</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="IDAStealth.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ida_stealth.jpg" />
+    <None Include="..\RDTSCEmu\driver\objfre_wxp_x86\i386\RDTSCEmu.sys" />
+    <None Include="..\StealthDriver\StealthDriver\objfre_wxp_x86\i386\StealthDriver.sys" />
+  </ItemGroup>
+</Project>

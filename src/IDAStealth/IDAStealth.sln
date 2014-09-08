@@ -1,9 +1,9 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 10.00
-# Visual Studio 2008
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "IDAStealth", "IDAStealth.vcproj", "{9295F5F3-F47E-4C50-B526-55AE13AA9457}"
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "IDAStealth", "IDAStealth.vcxproj", "{9295F5F3-F47E-4C50-B526-55AE13AA9457}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HideDebugger", "..\HideDebugger\HideDebugger.vcproj", "{59339E37-7C43-4CD2-B7B5-DF10D9197655}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HideDebugger", "..\HideDebugger\HideDebugger.vcxproj", "{59339E37-7C43-4CD2-B7B5-DF10D9197655}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

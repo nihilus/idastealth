@@ -1,7 +1,7 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 10.00
-# Visual Studio 2008
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "StealthDriver.W7", "StealthDriver\StealthDriver.W7.vcproj", "{D42B8C42-9344-44E7-844C-524F13995981}"
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "StealthDriver.W7", "StealthDriver\StealthDriver.W7.vcxproj", "{D42B8C42-9344-44E7-844C-524F13995981}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

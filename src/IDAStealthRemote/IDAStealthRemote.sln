@@ -1,7 +1,7 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 10.00
-# Visual Studio 2008
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "IDAStealthRemote", "IDAStealthRemote.vcproj", "{5C3801A0-3EFE-4D6A-9138-1CF5E8A05A07}"
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "IDAStealthRemote", "IDAStealthRemote.vcxproj", "{5C3801A0-3EFE-4D6A-9138-1CF5E8A05A07}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
