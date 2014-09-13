@@ -21,6 +21,7 @@ private:
 	DWORD pad(DWORD val, DWORD amount) { return (val+amount) & ~amount; };
 	DWORD padToDword(DWORD val) { return pad(val, 3); };
 	void* allocateMemAboveBase(void* baseAddress, size_t size);
+	DWORD determineIIDSize(PIMAGE_IMPORT_DESCRIPTOR importDescriptorTableAddress);
 	Process process_;
 	PIMAGE_IMPORT_DESCRIPTOR importDescrTblAddr_;
 	uintptr_t ntHeadersAddr_;

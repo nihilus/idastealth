@@ -1,6 +1,7 @@
 #include "IATModifier.h"
 #include <string>
 #include <Windows.h>
+#include <boost/scoped_array.hpp>
 
 using namespace std;
 
@@ -60,9 +61,11 @@ void IATModifier::writeIAT(const vector<string>& dlls)
 
 	// IMAGE_THUNK_DATA, 2 entries each (OriginalFirstThunk+FirstThunk)
 	customDataSize += 4 * sizeof(DWORD) * dlls.size();
-	DWORD origIIDTblSize = ntHeaders.OptionalHeader.DataDirectory[IMAGE_DIRECTORY_ENTRY_IMPORT].Size;
+	// Important: do not rely on the size given in the header since a packer is free to write anything there; the windows loader will not complain
+	//DWORD origIIDTblSize = ntHeaders.OptionalHeader.DataDirectory[IMAGE_DIRECTORY_ENTRY_IMPORT].Size;
+	DWORD origIIDTblSize = determineIIDSize(importDescrTblAddr_);
 	DWORD newDescrTblSize = customDataSize + origIIDTblSize;
-	char* newDescrTbl = new char[newDescrTblSize];
+	boost::scoped_array<char> newDescrTbl(new char[newDescrTblSize]);
 	
 	// allocate and build new import descriptor
 	DWORD iba = ntHeaders.OptionalHeader.ImageBase;
@@ -73,7 +76,7 @@ void IATModifier::writeIAT(const vector<string>& dlls)
 	DWORD currentRVA = newTblRVA;
 	
 	// step 1: prepend new IID entries for our dlls and fill with the correct RVAs
-	PIMAGE_IMPORT_DESCRIPTOR currentIDD = (PIMAGE_IMPORT_DESCRIPTOR)newDescrTbl;
+	PIMAGE_IMPORT_DESCRIPTOR currentIDD = (PIMAGE_IMPORT_DESCRIPTOR)newDescrTbl.get();
 	for (size_t i=0; i<dlls.size(); ++i, ++currentIDD)
 	{
 		// layout: [<orig_first_thunk><IAT><name>]...[...]
@@ -94,7 +97,7 @@ void IATModifier::writeIAT(const vector<string>& dlls)
 
 	// step 3: build blocks made of IMAGE_THUNK_DATA, IAT and dll name string
 	// let curBlock point after IIDs
-	PDWORD curBlock = (PDWORD)(newDescrTbl + origIIDTblSize + dlls.size() * sizeof(IMAGE_IMPORT_DESCRIPTOR));
+	PDWORD curBlock = (PDWORD)(newDescrTbl.get() + origIIDTblSize + dlls.size() * sizeof(IMAGE_IMPORT_DESCRIPTOR));
 	for (size_t i=0; i<dlls.size(); ++i)
 	{
 		// force the dll to export at least one entry with ordinal 1
@@ -126,7 +129,7 @@ void IATModifier::writeIAT(const vector<string>& dlls)
 	}
 
 	// finally write new descriptor, fix RVAs and update IMAGE_NT_HEADERS
-	process_.writeMemory(newDescrTblAddress, newDescrTbl, newDescrTblSize);
+	process_.writeMemory(newDescrTblAddress, newDescrTbl.get(), newDescrTblSize);
 	DWORD newIIDRVA = (DWORD)newDescrTblAddress - iba;
 	ntHeaders.OptionalHeader.DataDirectory[IMAGE_DIRECTORY_ENTRY_IMPORT].VirtualAddress = newIIDRVA;
 	ntHeaders.OptionalHeader.DataDirectory[IMAGE_DIRECTORY_ENTRY_IMPORT].Size = newDescrTblSize;
@@ -160,7 +163,6 @@ void IATModifier::writeIAT(const vector<string>& dlls)
 	DWORD oldProtect = process_.protectMemory((void*)ntHeadersAddr_, sizeof(IMAGE_NT_HEADERS), PAGE_EXECUTE_READWRITE);
 	process_.writeMemory((void*)ntHeadersAddr_, &ntHeaders, sizeof(IMAGE_NT_HEADERS));
 	process_.protectMemory((void*)ntHeadersAddr_, sizeof(IMAGE_NT_HEADERS), oldProtect);
-	delete[] newDescrTbl;
 }
 
 void* IATModifier::allocateMemAboveBase(void* baseAddress, size_t size)
@@ -200,4 +202,17 @@ IMAGE_NT_HEADERS IATModifier::readNTHeaders() const
 	IMAGE_NT_HEADERS ntHeaders;
 	process_.readMemory((void*)ntHeadersAddr_, &ntHeaders, sizeof(IMAGE_NT_HEADERS));
 	return ntHeaders;
+}
+
+DWORD IATModifier::determineIIDSize(PIMAGE_IMPORT_DESCRIPTOR importDescriptorTableAddress)
+{
+	IMAGE_IMPORT_DESCRIPTOR iid;
+	size_t count = 0;
+	for (;; ++importDescriptorTableAddress, ++count)
+	{
+		process_.readMemory(importDescriptorTableAddress, &iid, sizeof(iid));
+		if (iid.FirstThunk == 0 && iid.OriginalFirstThunk == 0) break;
+	}
+	
+	return (count + 1) * sizeof(iid);
 }
