@@ -1,7 +1,5 @@
 #include "InjectLib.h"
 
-using namespace std;
-
 #pragma pack(push, 1)
 
 struct LOADLIB_DATA
@@ -21,11 +19,11 @@ struct UNLOADLIB_DATA
 
 #pragma pack(pop)
 
-InjectLibrary::InjectLibrary(const string& fileName, const Process& process) 
+InjectLibrary::InjectLibrary(const std::string& fileName, const Process& process) 
 	: fileName_(fileName),
 	process_(process)
 {
-	if (fileName.length() >= MAX_PATH) throw exception("Invalid library - filename too long!");
+	if (fileName.length() >= MAX_PATH) throw std::exception("Invalid library - filename too long!");
 }
 
 InjectLibrary::InjectLibrary(HMODULE hRemoteLib, const Process& process)

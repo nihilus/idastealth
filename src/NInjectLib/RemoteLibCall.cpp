@@ -1,8 +1,6 @@
 #include "RemoteLibCall.h"
 #include <tchar.h>
 
-using namespace std;
-
 #pragma pack(push, 1)
 
 // this struct holds all data needed to perform a remote call
@@ -21,7 +19,7 @@ RemoteLibCall::RemoteLibCall(const InjectLibrary& library, const Process& proces
 	: process_(process)
 {
 	hDll_ = library.getDllHandle();
-	if (hDll_ == NULL) throw exception("Invalid dll handle");
+	if (hDll_ == NULL) throw std::exception("Invalid dll handle");
 }
 
 RemoteLibCall::~RemoteLibCall()
@@ -29,9 +27,9 @@ RemoteLibCall::~RemoteLibCall()
 }
 
 // preform remote call by name
-bool RemoteLibCall::remoteCall(const string& functionName)
+bool RemoteLibCall::remoteCall(const std::string& functionName)
 {
-	if (functionName.length() >= MaxFuncNameLength) throw exception("Function name too long!");
+	if (functionName.length() >= MaxFuncNameLength) throw std::exception("Function name too long!");
 	functionName_ = functionName;
 	functionNumber_ = -1;
 	return remoteCall();
