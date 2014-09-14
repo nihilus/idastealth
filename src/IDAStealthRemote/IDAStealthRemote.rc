@@ -52,8 +52,8 @@ END
 // DRV
 //
 
-IDR_RDTSC               DRV                     "D:\\Research\\RDTSCEmu\\driver\\objfre_wxp_x86\\i386\\RDTSCEmu.sys"
-IDR_STEALTH             DRV                     "D:\\Research\\StealthDriver\\StealthDriver\\objfre_wxp_x86\\i386\\StealthDriver.sys"
+IDR_RDTSC               DRV                     "..\\RDTSCEmu\\driver\\objfre_wxp_x86\\i386\\RDTSCEmu.sys"
+IDR_STEALTH             DRV                     "..\\StealthDriver\\StealthDriver\\objfre_wxp_x86\\i386\\StealthDriver.sys"
 #endif    // English (U.S.) resources
 /////////////////////////////////////////////////////////////////////////////
 

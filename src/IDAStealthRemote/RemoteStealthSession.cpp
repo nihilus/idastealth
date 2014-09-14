@@ -17,7 +17,7 @@ RemoteStealth::RemoteStealthSession::RemoteStealthSession()
 	boost::filesystem::path p = buffer;
 	p.remove_leaf();
 	p /= StealthDllFileName;
-	stealthDll_ = p.native_file_string();
+	stealthDll_ = p.string();
 }
 
 void RemoteStealth::RemoteStealthSession::handleDbgAttach(const RSProtocolItem& item)

@@ -105,7 +105,7 @@ std::string IDAStealth::LocalStealthSession::getStealthDllPath()
 		p.remove_leaf();
 		p /= "plugins";
 		p /= InjectDllName;
-		return p.native_file_string();
+		return p.string();
 	}
 	return "";
 }
