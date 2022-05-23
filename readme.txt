@@ -11,6 +11,69 @@ CONTENTS OF THIS FILE
   * Changelog
   * Files
 
+WINDOWS XP SP3 SETUP
+----------------------------------------------------------
+HyperVisor: VMWare Player Free - Fedora
+Windows XP 32-bit SP3 - Build: 2600.xpsp.080413-2111 : Service Pack 3
+Visual Studio 2010 Professional - Microsoft Visual C++ 2010
+Windows DDK - 7600.16385.1 - C:\WinDDK\7600.16385.1
+
+- WTL Version 8.0 - C:\WTL80
+Download: https://sourceforge.net/projects/wtl/files/WTL%208.0/WTL%208.0%20Final/
+
+- libboost 1.43
+Download: https://sourceforge.net/projects/boost/files/boost-binaries/1.43.0/
+C:\boost\libboost_filesystem-vc100-mt-sgd-1_43.lib
+C:\boost\libboost_date_time-vc100-mt-sgd-1_43.lib
+C:\boost\libboost_regex-vc100-mt-sgd-1_43.lib
+C:\boost\libboost_serialization-vc100-mt-sgd-1_43.lib
+C:\boost\libboost_system-vc100-mt-sgd-1_43.lib
+C:\boost\libboost_thread-vc100-mt-sgd-1_43.lib
+C:\boost\libboost_wserialization-vc100-mt-sgd-1_43.lib
+
+- ddkbuild v7.4
+Download: https://www.osronline.com/OsrDown.cfm/ddkbuild_v74r43.zip
+Install Directory: C:\ddkbuild\ddkbuild.cmd
+
+- OSR Driver Loader V3.0
+OSRLOADER.exe
+
+- Environment Variables
+
+-- Visual Studio must find ddkbuild.cmd in its PATH
+Solution: TODO
+
+-- System variables
+The path to c:\ddkbuild was added to the system PATH variable
+
+- Solution configuration for IDAStealth\HideDebugger
+-- HideDebugger
+Property Pages\Configuration Properties\C/C++\Preprocessor\Prerocessor Definitions
+Added _SCL_SECURE_NO_WARNINGS
+
+-- VC++ Directories
+--- Include Directories: Added C:\boost\boost_1_43_0
+--- Library Directories: Added C:\boost;c:\boost\boost_1_43_0}\bin.v2\libs;C:\boost
+--- Source  Directories: Added C:\boost
+
+- Solution configuration for IDAStealth\IDAStealth
+--- Property Pages\Configuration Properties\C/C++\Preprocessor\Prerocessor Definitions
+Added _SCL_SECURE_NO_WARNINGS
+
+--- Include Directories: Added C:\boost\boost_1_43_0;c:\boost;C:\WTL80\include;C:\WTL80;../../../../include;$(IncludePath)
+--- Library Directories: Added C:\boost;C:\boost\boost_1_43_0\libs;C:\boost_1_54_0\libs;../../../../lib/x86_win_vc_32;C:\Program\boost\boost_1_54_0\stage\lib;$(LibraryPath)
+--- Source  Directories: Added c:\boost;$(SourcePath)
+
+- Solution configuration for IDAStealth\IDAStealth
+--- Property Pages\Configuration Properties\Debugging\Environment   WXBASE=c:\WinDDK\7600.16385.1
+--- Property Pages\Configuration Properties\NMake
+---    General\Build Command Line: ddkbuild.cmd -WXP free .
+---    General\rebuild All Command Line: ddkbuild.cmd -WXP free . -cZ
+---    IntelliSense\IncludeSearchPath: $(W7BASE)\inc\ddk\;$(NMakeIncludeSearchPath)
+
+- Solution configuration for StealthDriver.W7
+--- Property Pages\Configuration Properties\Debugging\Environment   WXBASE=c:\WinDDK\7600.16385.1
+
 
 INSTALLATION
 ------------
@@ -112,14 +175,14 @@ CHANGELOG
   * Bugfix: Injection of the stealth dll failed if the size of the import
     directory was (intentionally) set to a wrong value
   * Improved: Added profile for the newest version of VMProtect (v2.09)
-	
+
 09/27/2010 - v1.3.2
 
   * Bugfix: SEH monitoring was not working with IDA versions < v5.7
   * Bugfix: The debug registers could be overwritten by a SEH handler if the
     respective thread never called SetThreadContext before the SEH handler
 	was invoked
-  
+
 08/23/2010 - v1.3.1
 
   * Bugfix: The NtClose hook could cause access violations in some situations
@@ -129,7 +192,7 @@ CHANGELOG
   * Improved: The user can give custom names to the stealth and RDTSC emulation
     driver, respectively
   * Some minor fixes and improvements
-  
+
 07/07/2010 - v1.3
 
   * Added: Added support for the ProcessDebugObjectHandle as well as
@@ -139,7 +202,7 @@ CHANGELOG
 	from a SEH handler
   * Added: Profile for VMProtect has been added
   * Some minor fixes and improvements
-	
+
 02/15/2010 - v1.2.1
 
   * Bugfix: DoS in SetThreadContext if supplied context was not readable or
@@ -165,9 +228,9 @@ CHANGELOG
 
   * Bugfix: RDTSC driver handling; driver service was not deleted in some rare cases
   * Bugfix: RDTSC driver mode was broken due to recent BSOD fix
-  * Improved: IDAStealth can hide from Themida with ultra anti debugging settings 
+  * Improved: IDAStealth can hide from Themida with ultra anti debugging settings
   * Added: New stealth driver
-  
+
 11/24/2009 - v1.1.1
 
   * Bugfix: Old RDTSC driver version slipped into the last release.
@@ -175,9 +238,9 @@ CHANGELOG
   * Improved: To increase overall stealth, the NT Headers are restored to
     their original state after the dll has been injected
   * Added: Profile for yoda's Protector added
-  
+
 11/14/2009 - v1.1
-  
+
   * Bugfix: OpenProcess failed on XP when started from a restricted user account
   * Bugfix: Bound imports directory is only cleared if necessary
   * Bugfix: DBG_PRINT DoS due to improper parameter checking
@@ -287,7 +350,7 @@ FILES
     \IDAStealthRemote --- remote server
     \IniFileAccess    --- utility class to read/write ini files
     \NInjectLib       --- library to inject dlls into a process
-    \RDTSCEmu         --- kernel mode driver to fake RDTSC return values    
+    \RDTSCEmu         --- kernel mode driver to fake RDTSC return values
 
 
 [1] WTL - http://wtl.sourceforge.net/
