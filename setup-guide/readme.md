@@ -1,15 +1,7 @@
 
-
-[TOC]
-
-
-
-### **About **
+### About
 
 This document is a setup guide for building idastealth IDA plugin and related components available from https://github.com/nihilus/idastealth.
-
-
-[TOC]
 
 
 
@@ -39,7 +31,7 @@ The build produces a sys driver file here:
 ![alt_text](images/image3.png "image_tooltip")
 
 
-**Problem: Windows XP SP3 32-bit**
+### Problem: Windows XP SP3 32-bit
 
 **Solution:**
 
@@ -51,9 +43,9 @@ winver gives:
 ![alt_text](images/image4.png "image_tooltip")
 
 
-**Problem: Visual Studio 2010**
+### Problem: Visual Studio 2010
 
-**Solution:**
+### Solution:
 
 You need Visual Studio 2010 in order to build the driver. Install VS Studio 2010 with VC++ support.
 
@@ -61,9 +53,9 @@ You need Visual Studio 2010 in order to build the driver. Install VS Studio 2010
 ![alt_text](images/image5.png "image_tooltip")
 
 
-**Problem: ddkbuild.cmd needs WinDDK in order to build drivers**
+### Problem: ddkbuild.cmd needs WinDDK in order to build drivers
 
-**Solution:**
+### Solution:
 
 Download WinDDK\7600.16385.1 and install it to C:\WinDDK\7600.16385.1
 
@@ -71,9 +63,9 @@ Download WinDDK\7600.16385.1 and install it to C:\WinDDK\7600.16385.1
 ![alt_text](images/image6.png "image_tooltip")
 
 
-**Problem: Install the driver build script ddkbuild.cmd **
+### Problem: Install the driver build script ddkbuild.cmd
 
-**Solution:**
+### Solution:
 
 Download v7.4 from  [https://www.osronline.com/OsrDown.cfm/ddkbuild_v74r43.zip](https://www.osronline.com/OsrDown.cfm/ddkbuild_v74r43.zip) and place it into C:\ddkbuild\ddkbuild.cmd.
 
@@ -83,9 +75,9 @@ Alternative: Copy it from the root folder of idastealth.
 ![alt_text](images/image7.png "image_tooltip")
 
 
-**Problem: Build can’t find the ddkbuild.cmd file**
+### Problem: Build can’t find the ddkbuild.cmd file
 
-**Solution:**
+### Solution:
 
 Driver projects cannot find ddkbuild.cmd if we don’t tell visual studio where to look for it.
 
@@ -108,7 +100,7 @@ In the example below C:\ddkbuild\ddkbuild.cmd was placed.
 ![alt_text](images/image10.png "image_tooltip")
 
 
-**Solution:**
+### Solution:
 
 Add the following line to C:\ddkbuild\ddkbuild.cmd
 
@@ -121,14 +113,14 @@ Make sure the WinDDK is located there.
 ![alt_text](images/image11.png "image_tooltip")
 
 
-**Problem: **There is a build error, an unresolved symbol for _KeSetAffinityThread is missing
+### Problem: There is a build error, an unresolved symbol for _KeSetAffinityThread is missing
 
 
 
 ![alt_text](images/image12.png "image_tooltip")
 
 
-**Solution:**
+### Solution:
 
 The code doesn’t work, don’t know why, so we have to modify it.
 
@@ -136,13 +128,13 @@ We define a function pointer, `KeSetAffinityThreadPtr and populate it with the a
 
 
 
-1. **Comment out the following line (Line 3) in HookInt.cpp**
+#### 1. Comment out the following line (Line 3) in HookInt.cpp
 
 //extern "C" KAFFINITY KeSetAffinityThread(IN PKTHREAD Thread, IN KAFFINITY Affinity);
 
 
 
-2. **Replace switchToCpu with the below code:**
+#### 2. **Replace switchToCpu with the below code:
 
 
 ![alt_text](images/image13.png "image_tooltip")
@@ -174,7 +166,7 @@ VOID switchToCPU(CCHAR cpu)
 
 **Problem: **You want to test the driver
 
-**Solution:**
+### Solution:
 
 Use OSR Driver Loader program to load it.
 
@@ -182,9 +174,9 @@ Use OSR Driver Loader program to load it.
 ![alt_text](images/image14.png "image_tooltip")
 
 
-**Problem: **Test that RDTSC is simulated
+### Problem: **Test that RDTSC is simulated
 
-**Solution:**
+### Solution:
 
 When the driver is loaded, rdtsc instruction will return 0 for both edx and eax:
 
@@ -212,15 +204,15 @@ StealthDriver.W7 is a driver so it has a NMake section in the property pages:
 ![alt_text](images/image18.png "image_tooltip")
 
 
-**Problem: Build can’t find the ddkbuild.cmd file**
+### Problem: Build can’t find the ddkbuild.cmd file
 
 See above in the RDTSCEmu section.
 
-**Problem: Install the driver build script ddkbuild.cmd **
+### Problem: Install the driver build script ddkbuild.cmd
 
 See above in the RDTSCEmu section.
 
-**Problem: ddkbuild.cmd needs WinDDK in order to build drivers**
+### Problem: ddkbuild.cmd needs WinDDK in order to build drivers
 
 See above in the RDTSCEmu section.
 
@@ -230,7 +222,7 @@ See above in the RDTSCEmu section.
 ![alt_text](images/image19.png "image_tooltip")
 
 
-**Solution:**
+### Solution:
 
 Add the following line to C:\ddkbuild\ddkbuild.cmd
 
@@ -272,7 +264,7 @@ Open the HideDebugger solution separately opening the solution file under idaste
 ![alt_text](images/image25.png "image_tooltip")
 
 
-**Solution 1. Download boost project headers for 1.43.0**
+### Solution 1. Download boost project headers for 1.43.0
 
 The following boost project file contains include files for boost 1.43.0.
 
@@ -282,7 +274,7 @@ Download the boost library project version 1.43.0 from [https://www.boost.org/us
 ![alt_text](images/image26.png "image_tooltip")
 
 
-**Solution 2. Tell Visual Studio where to look for boost headers**
+### Solution 2. Tell Visual Studio where to look for boost headers
 
 
 ![alt_text](images/image27.png "image_tooltip")
@@ -292,7 +284,7 @@ Download the boost library project version 1.43.0 from [https://www.boost.org/us
 
 c:\program files\microsoft visual studio 10.0\vc\include\xutility(2503): warning C4996: 'std::_Copy_backward': Function call with parameters that may be unsafe - this call relies on the caller to check that the passed values are correct.
 
-**Solution:**
+### Solution:
 
 To disable this warning, use -D_SCL_SECURE_NO_WARNINGS. See documentation on how to use Visual C++ 'Checked Iterators'
 
@@ -303,15 +295,15 @@ Add _SCL_SECURE_NO_WARNINGS to Preprocessor section in the property pages:
 ![alt_text](images/image28.png "image_tooltip")
 
 
-**Problem: Builds fail with errors from linker trying to link against multiple boost libraries**
+### Problem: Builds fail with errors from linker trying to link against multiple boost libraries
 
 
 ![alt_text](images/image29.png "image_tooltip")
 
 
-**Solution:**
+### Solution:
 
-**Download** the following boost libraries into C:\boost directory then add this directory to Visual Studio so it knows where to find them (,
+### Download the following boost libraries into C:\boost directory then add this directory to Visual Studio so it knows where to find them (,
 
 
 ```
@@ -349,7 +341,7 @@ IDAStealth is the IDAPro plugin, when building IDAStealth dependent projects are
 
 Solution:
 
-**Solution 1. Download boost project headers for 1.43.0**
+### Solution 1. Download boost project headers for 1.43.0
 
 The following boost project file contains include files for boost 1.43.0.
 
@@ -359,18 +351,18 @@ Download the boost library project version 1.43.0 from [https://www.boost.org/us
 ![alt_text](images/image32.png "image_tooltip")
 
 
-**Solution 2. Tell Visual Studio where to look for boost headers**
+### Solution 2. Tell Visual Studio where to look for boost headers
 
 
 
 ![alt_text](images/image33.png "image_tooltip")
 
 
-**Problem: **Build complains atlapp.h is missing for WTLCommon.h
+### Problem: **Build complains atlapp.h is missing for WTLCommon.h
 
 The WTL library headers are missing and Visual Studio can’t find them.
 
-**Solution:**
+### Solution:
 
 Download WTL80 from `https://sourceforge.net/projects/wtl/files/WTL%208.0/WTL%208.0%20Final/`
 
@@ -387,12 +379,12 @@ and extract into C:\WTL80 then add this folder + C:\WTL80\include to Visual Stud
 
 **Problem: **Build complains it can’t find IDASDK headers.
 
-**Solution:**
+### Solution:
 
 Add path to IDASDK folder as above.
 
-**Problem: **Build complains it can’t find IDASDK library
+### Problem: **Build complains it can’t find IDASDK library
 
-**Solution:**
+### Solution:
 
 Add path to IDASDK libvc library file.
